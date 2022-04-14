@@ -36,7 +36,7 @@ export default function Sidebar() {
 
     return (
         // sidebar creation using the pro sidebar library
-        <ProSidebar collapsed={menuCollapse} style={{ height: '100vh', position: 'fixed' }}>
+        <ProSidebar collapsed={menuCollapse} style={{ height: '100%', position: 'fixed' }}>
             <SidebarHeader>
                 <Menu iconShape='circle'>
                     <MenuItem onClick={menuIconClick} icon={<FaBars />}>
