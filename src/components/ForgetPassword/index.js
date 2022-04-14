@@ -10,11 +10,11 @@ import {
     FormInput,
     FormButton,
     Message,
-    Error
+    Error, 
+    Text
 }
 from './ForgotPasswordElements'
 import { useAuth } from '../../contexts/AuthContext'
-
 
 const ForgotPassword = () => {
     const emailRef = useRef()
@@ -52,6 +52,7 @@ const ForgotPassword = () => {
                         <FormLabel>Email</FormLabel>    
                         <FormInput type='email' ref={emailRef} required/>
                         <FormButton type='submit' disabled={loading}>Reset Password</FormButton>
+                        <Text to='/signin'>Remember your password?</Text>
                     </Form>    
                 </FormContent>  
             </FormWrap>    

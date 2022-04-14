@@ -15,10 +15,10 @@ const Footer = () => {
                     <FooterLinksWrapper>
                         <FooterLinkItems>
                             <FooterLinkTitle>About Us</FooterLinkTitle>
-                                <FooterLink to='/signin'>How it Works</FooterLink>
-                                <FooterLink to='/signin'>Testimonies</FooterLink>
-                                <FooterLink to='/signin'>Vacancies</FooterLink>
-                                <FooterLink to='/signin'>Terms of Service</FooterLink>
+                                <FooterLink to=''>How it Works</FooterLink>
+                                <FooterLink to=''>Testimonies</FooterLink>
+                                <FooterLink to=''>Vacancies</FooterLink>
+                                <FooterLink to=''>Terms of Service</FooterLink>
                         </FooterLinkItems>
                     </FooterLinksWrapper>
                 </FooterLinksContainer>
@@ -27,7 +27,7 @@ const Footer = () => {
                         <SocialLogo to='/' onClick={toggleHome}>
                             OnyxCards
                         </SocialLogo>
-                        <WebsiteRights>Onyxcards © 2021 All rights reserved</WebsiteRights>
+                        <WebsiteRights>Onyxcards © 2022 All rights reserved</WebsiteRights>
                         <SocialIcons>
                             <SocialIconLink href='/' target='_blank' aria-label='Facebook'>
                                 <FaFacebook />

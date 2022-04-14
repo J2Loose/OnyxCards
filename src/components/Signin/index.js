@@ -14,6 +14,7 @@ const SignIn = () => {
 
         //function which uses authcontext to log the user in, with exception handling
         async function handleSubmit(e) {
+            //stops the page from automatically refreshing
             e.preventDefault()
 
             try {

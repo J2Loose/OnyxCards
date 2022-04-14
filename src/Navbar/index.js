@@ -6,6 +6,7 @@ import { animateScroll as scroll } from 'react-scroll'
 const Navbar = () => {
     const [scrollNav, setScrollNav] = useState(false)
 
+    //constant used for the navbar background change. Checks if the user has scroll a certain distance downwards
     const changeNav = () => {
         if(window.scrollY >= 80) {
             setScrollNav(true)
@@ -14,25 +15,29 @@ const Navbar = () => {
         }
     }
 
+    //event listener to react when the user scrolls
     useEffect(() => {
         window.addEventListener('scroll', changeNav)
     }, [])
 
+    //sends the user back to the top of the landing page
     const toggleHome = () => {
         scroll.scrollToTop();
     }
 
     return (
       <>
+        {/* Navbar function making use of the styled components module. Which is why the tag names look a bit weird */}
         <Nav scrollNav={scrollNav}>
             <NavbarContainer>
-                <NavLogo to='/home' onClick={toggleHome}>
+                <NavLogo  onClick={toggleHome}>
                     OnyxCards
                 </NavLogo>
                 <MobileIcon>
                     <FaBars />
                 </MobileIcon>
                 <NavMenu>
+                    {/* Smooth scroll is used here for the seamless transition between sections */}
                     <NavItem>
                         <NavLinks to='about' smooth={true} duration={500} spy={true} exact='true' offset={-80}>About</NavLinks>
                     </NavItem>

@@ -1,38 +1,47 @@
 import LandingPage from './landingpage'
 import { AuthProvider } from '../contexts/AuthContext'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Dashboard from './dashboard'
-import SignInPage from './Login'
-import SignupPage from './Signup'
+import Dash from '../components/Dash'
 import PrivateRoute from './PrivateRoute'
-import Passwordforget from './Passwordforget'
 import Create from './Pages(P)/Create'
 import Play from './Pages(P)/Play'
-import Stats from './Pages(P)/Stats'
+import Stats from './Pages(P)/Statistics'
 import Profile from './Pages(P)/Profile'
 import ShowCards from './Pages(P)/CardCreation'
 import PlayCards from './Pages(P)/PlayCards'
-
+import Register from './Register'
+import SignIn from './Signin'
+import ForgotPassword from './ForgetPassword'
+import TestDash from './TestDash'
+import TestCreate from './TestCreate'
 
 
 function App() {
 
   return (
-    //routing including private routes
     <Router>
       <AuthProvider>
         <Switch>
-          <PrivateRoute path='/dashboard' component={Dashboard} />     
+          {/* Routing for the user's dashboard. Only accessible if the user is authenticated */}
+          <PrivateRoute path='/dashboard' component={TestDash} /> 
+          {/* Routing for pathways that are available without authentication */}
           <Route path='/home' component={LandingPage} />
-          <Route path='/signin' component={SignInPage} />
-          <Route path='/signup' component={SignupPage} />
-          <Route path='/forgotten' component={Passwordforget} />
-          <PrivateRoute path='/create' component={Create} />
+          <Route path='/signin' component={SignIn} />
+          <Route path='/signup' component={Register} />
+          <Route path='/forgotten' component={ForgotPassword} />
+          {/* Routing for the card creation page. Only accessible if the user is authenticated */}
+          <PrivateRoute path='/create' component={TestCreate} />
+          {/* Routing for the page where the user uses their created cards. Only accessible if the user is authenticated */}
           <PrivateRoute path='/play' component={Play} />
+          {/* Routing for the user's stats page. Only accessible if the user is authenticated */}
           <PrivateRoute path='/stats' component={Stats} />
+          {/* Routing for the user's profile. Only accessible if the user is authenticated */}
           <PrivateRoute path='/profile' component={Profile} />
+          {/* Routing for a specific deck that the user has created. Accessed by selecting a deck on the deck creation page. Path is specfic to that deck as it has the deck's ID. Only accessible if the user is authenticated */}
           <PrivateRoute exact path='/deck/:deckId' component={ShowCards}/>
+          {/* Routing for a specific deck that the user has created. Accessed by selecting a deck on the "play" page. Path is specfic to that deck as it has the deck's ID. Only accessible if the user is authenticated */}
           <PrivateRoute exact path='/use/:deckId' component={PlayCards}/>
+          {/* The page that each user is greeted with when first visiting the site*/}
           <LandingPage />  
         </Switch> 
       </AuthProvider>

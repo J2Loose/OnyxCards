@@ -18,15 +18,18 @@ const Register = () => {
         const delayInMilli = 1000;
         const defaultLength = 6;
 
-        //function to create a user account
+        //function which creates user's account
         async function handleSubmit(e) {
+            //stops page from automatically refreshing
             e.preventDefault()
 
+            //double entry password validation
             if (passwordRef.current.value !== 
             passwordConfirmRef.current.value) {
                 return setError('Passwords do not match')    
             }
 
+            //makes sure the password is at least 6 characters long
             if (passwordRef.current.value.length < defaultLength) {
                 return setError('Password needs to be at least 6 characters long')
             }

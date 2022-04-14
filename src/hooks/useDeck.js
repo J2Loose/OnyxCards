@@ -2,7 +2,7 @@ import { useReducer, useEffect } from 'react'
 import { database } from '../firebase'
 import { useAuth } from '../contexts/AuthContext'
 
-
+//used for the reducer function below
 const ACTIONS = {
   SELECT_DECK: 'select_deck',
   UPDATE_DECK: 'update-deck',
@@ -11,7 +11,7 @@ const ACTIONS = {
 
 }
 
-//creating the "folder" in which decks will be created
+//creating the "folder" in which decks will be created. Basically the deck creation page
 const ROOT_DECK = { name: 'Root', id: null, path: [] }
 
 
@@ -44,7 +44,7 @@ function reducer(state, { type, payload }) {
         return state
   }
 }
-
+//The hook
 export function useDeck(deckId = null, deck = null) {
   const [state, dispatch] = useReducer(reducer, {
     deckId,
@@ -53,7 +53,7 @@ export function useDeck(deckId = null, deck = null) {
     childCards: []
   })
 
-  //used for querying database
+  //used to retrieve decks/cards made by the current user
   const { currentUser } = useAuth()
 
 
@@ -87,12 +87,14 @@ export function useDeck(deckId = null, deck = null) {
     })
   }, [deckId])
 
-  //only showing decks that have been created by the user
+  //returns all decks that are created by the current user. Ordered by the date of creation
   useEffect(() => {
     return database.decks
+    //conditionals
     .where('parentId', '==', deckId)
     .where('userId', '==', currentUser.uid)
     .orderBy('createdAt')
+    //all decks that match the conditions above, are added to the array childDecks
     .onSnapshot(snapshot => {
       dispatch({
         type: ACTIONS.SET_CHILD_DECKS,
@@ -101,12 +103,14 @@ export function useDeck(deckId = null, deck = null) {
     })
   }, [deckId, currentUser])
 
-  //only showing cards that are in the selected deck
+  //returns all cards that are created by the current user under a specific deck. Ordered by the date of creation
   useEffect(() => {
     return database.cards
+    //conditionals
     .where('parentId', '==', deckId)
     .where('userId', '==', currentUser.uid)
     .orderBy('createdAt')
+    //all cards that match the conditions above, are added to the array childCards
     .onSnapshot(snapshot => {
       dispatch({
         type: ACTIONS.SET_CHILD_CARDS,

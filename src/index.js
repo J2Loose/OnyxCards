@@ -4,7 +4,6 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import 'bootswatch/dist/united/bootstrap.min.css';
-// import 'semantic-ui-css/semantic.min.css'
 import 'popper.js'; // eslint-disable-next-line
 import 'react-popper'
 import 'jquery'
