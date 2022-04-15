@@ -14,9 +14,9 @@ export const TestNavbar = styled.nav`
     background: #F98200;
     height: 10%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding-left: 40px;
+    align-items: center;
+
 
 `
 
@@ -25,6 +25,7 @@ export const Title = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: white;
     font-size: 50px;
     padding-left: 10px;
@@ -35,6 +36,8 @@ export const Title = styled.div`
     @media screen and (max-width: 768px) {
         width: 100%;
         justify-content: center;
+        font-size: 100%;
+        
     }
 `
 
@@ -59,12 +62,14 @@ export const Search = styled.input`
     border-radius: 10px;
     width: 50%;
     height: 30%;
+    color: white;
+    padding-left: 5px;
     ::placeholder,
     ::-webkit-input-placeholder {
-      color: black;
+      color: white;
     }
     :-ms-input-placeholder {
-       color: black;
+       color: white;
     }
 `
 
@@ -94,6 +99,10 @@ export const Text = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        font-size: 100%;
+    }
 `
 
 export const DeckViewer = styled.div`
@@ -122,6 +131,8 @@ export const CreateButton = styled.button`
     }
 `
 
+
+
 export const ButtonWrap = styled.div`
     height: 12%;
     display: flex;
@@ -143,6 +154,29 @@ export const Deck = styled.section`
     &:hover {
         text-decoration: none;
     }
+
+    @media screen and (max-width: 768px) {
+        font-size: 100%;
+        overflow: hidden;
+        text-overflow: ellipses;
+    }
+`
+
+export const Card = styled.section`
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: grey;
+    color: white;
+    font-size: 20px;
+
+    &:hover {
+        text-decoration: none;
+        background: red;
+    }
 `
 
 export const DeckBox = styled.div`
@@ -151,6 +185,34 @@ export const DeckBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+`
+
+export const BackButton = styled.button`
+    background: grey;
+    height: 30%;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    color: white;
+    font-size: 100%;
+
+    &:hover {
+        background: white;
+        color: #F98200;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 100%;
+    }
+`
+
+export const BackButtonWrapper = styled.div`
+    padding-right: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
 `
 
 // export const List = styled.button`

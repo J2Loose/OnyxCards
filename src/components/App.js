@@ -14,6 +14,7 @@ import SignIn from './Signin'
 import ForgotPassword from './ForgetPassword'
 import TestDash from './TestDash'
 import TestCreate from './TestCreate'
+import TestShowCards from './TestCreate/TestCardCreate'
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
           {/* Routing for the user's profile. Only accessible if the user is authenticated */}
           <PrivateRoute path='/profile' component={Profile} />
           {/* Routing for a specific deck that the user has created. Accessed by selecting a deck on the deck creation page. Path is specfic to that deck as it has the deck's ID. Only accessible if the user is authenticated */}
-          <PrivateRoute exact path='/deck/:deckId' component={ShowCards}/>
+          <PrivateRoute exact path='/deck/:deckId' component={TestShowCards}/>
           {/* Routing for a specific deck that the user has created. Accessed by selecting a deck on the "play" page. Path is specfic to that deck as it has the deck's ID. Only accessible if the user is authenticated */}
           <PrivateRoute exact path='/use/:deckId' component={PlayCards}/>
           {/* The page that each user is greeted with when first visiting the site*/}

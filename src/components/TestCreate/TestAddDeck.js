@@ -56,7 +56,7 @@ export default function TestAddDeck({ currentDeck }) {
               <AiOutlinePlus />
             </CreateButton>
                     {/* Form to create a deck */}
-                    <Modal show={open} centered >
+                    <Modal show={open} centered dismissable='true'>
                             <Modal.Header >
                                 <h1>Create a Deck</h1>
                             </Modal.Header>
