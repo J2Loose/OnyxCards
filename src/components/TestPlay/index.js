@@ -16,19 +16,17 @@ import {
     HyperLink,
     Option
 } 
-from './testCreateElements'
-import TestAddDeck from './TestAddDeck'
+from './testPlayElements'
 import { useDeck } from '../../hooks/useDeck'
 import { useParams, Link, useHistory } from 'react-router-dom'
-import Sidebar from '../Sidebar'
-import TestDeck from './TestDeck'
+import Deck from './Deck'
 import { AiOutlineHome, AiOutlinePlus, AiOutlineUser } from 'react-icons/ai'
-import { FiMonitor, FiLogOut } from 'react-icons/fi'
+import { FiLogOut } from 'react-icons/fi'
 import { useAuth } from '../../contexts/AuthContext'
 
 
 
-const TestCreate = () => {
+const TestPlay = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [error, setError] = useState('')
     const { deckId } = useParams()
@@ -51,7 +49,7 @@ const TestCreate = () => {
     return (
         <TestContainer>
             <TestNavbar>
-                <Title>Create and Search through your decks</Title>
+                <Title>Use your decks</Title>
             </TestNavbar>
             <SearchWrapper>
                 <Search 
@@ -66,9 +64,6 @@ const TestCreate = () => {
                 <DecksWrapper>
                     <DeckDisplay>
                         <Text>Your Decks</Text>
-                        <ButtonWrap>
-                            <TestAddDeck currentDeck={deck}/>
-                        </ButtonWrap>
                         {childDecks.length > 0 && (
                             <DeckViewer>
                                 {childDecks.filter((childDeck)=> {
@@ -82,7 +77,7 @@ const TestCreate = () => {
                                         key={childDeck.id} 
                                         className='p-2'
                                     >
-                                        <TestDeck deck={childDeck}/>
+                                        <Deck deck={childDeck}/>
                                     </DeckBox>
                                 ))}
                             </DeckViewer>
@@ -98,10 +93,10 @@ const TestCreate = () => {
                     Home
                 </HyperLink>
                 <HyperLink>
-                    <Option to='/play' as={Link}>
-                        <FiMonitor />
+                    <Option to='/create' as={Link}>
+                        <AiOutlinePlus />
                     </Option>
-                    Play
+                    Create
                 </HyperLink>
                 <HyperLink>
                     <Option to='/profile' as={Link}>
@@ -122,4 +117,4 @@ const TestCreate = () => {
 
 
 
-export default TestCreate
+export default TestPlay

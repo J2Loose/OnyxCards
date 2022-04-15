@@ -15,6 +15,8 @@ import ForgotPassword from './ForgetPassword'
 import TestDash from './TestDash'
 import TestCreate from './TestCreate'
 import TestShowCards from './TestCreate/TestCardCreate'
+import TestPlay from './TestPlay'
+import TestPlayCards from './TestPlay/PlayCards'
 
 
 function App() {
@@ -33,7 +35,7 @@ function App() {
           {/* Routing for the card creation page. Only accessible if the user is authenticated */}
           <PrivateRoute path='/create' component={TestCreate} />
           {/* Routing for the page where the user uses their created cards. Only accessible if the user is authenticated */}
-          <PrivateRoute path='/play' component={Play} />
+          <PrivateRoute path='/play' component={TestPlay} />
           {/* Routing for the user's stats page. Only accessible if the user is authenticated */}
           <PrivateRoute path='/stats' component={Stats} />
           {/* Routing for the user's profile. Only accessible if the user is authenticated */}
@@ -41,7 +43,7 @@ function App() {
           {/* Routing for a specific deck that the user has created. Accessed by selecting a deck on the deck creation page. Path is specfic to that deck as it has the deck's ID. Only accessible if the user is authenticated */}
           <PrivateRoute exact path='/deck/:deckId' component={TestShowCards}/>
           {/* Routing for a specific deck that the user has created. Accessed by selecting a deck on the "play" page. Path is specfic to that deck as it has the deck's ID. Only accessible if the user is authenticated */}
-          <PrivateRoute exact path='/use/:deckId' component={PlayCards}/>
+          <PrivateRoute exact path='/use/:deckId' component={TestPlayCards}/>
           {/* The page that each user is greeted with when first visiting the site*/}
           <LandingPage />  
         </Switch> 

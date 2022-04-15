@@ -22,10 +22,6 @@ import {
 } 
 from '../testCreateElements'
 
-
-
-
-
 export default function TestShowCards() {
     const { deckId } = useParams()
     const { deck, childCards } = useDeck(deckId)
@@ -34,7 +30,6 @@ export default function TestShowCards() {
 
     return (
         <TestContainer>
-            <Sidebar />
             <TestNavbar>
                 <Title>Search and add cards to this deck </Title>
             </TestNavbar>

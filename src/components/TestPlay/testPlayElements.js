@@ -42,7 +42,7 @@ export const Title = styled.div`
 `
 
 export const TestBody = styled.div`
-    height: 70%;
+    height: ${({using}) => (using ? '90%' : '70%')};
     display: flex;
     // justify-content: center;
     flex-direction: row;
@@ -82,9 +82,9 @@ export const DecksWrapper = styled.div`
     width: 100%;
     height: 100%;
 `
-
+    
 export const DeckDisplay = styled.div`
-    width: 60%;
+    width: ${({using}) => (using ? '80%' : '60%')};
     height: 90%;
     background: black;
     border-radius: 40px;
@@ -94,7 +94,7 @@ export const Text = styled.div`
     color: white;
     font-weight: bold;
     font-size: 40px;
-    height: 10%;
+    height: 15%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -106,7 +106,7 @@ export const Text = styled.div`
 `
 
 export const DeckViewer = styled.div`
-    height: 77%;
+    height: 79%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -138,9 +138,10 @@ export const ButtonWrap = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    border: dashed white;
 `
 
-export const Deck = styled.section`
+export const ShowDeck = styled.section`
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -192,7 +193,7 @@ export const BackButton = styled.button`
     height: 30%;
     border: none;
     border-radius: 10px;
-    width: 100%;
+    width:  ${({using}) => (using ? '30%' : '100%')};
     color: white;
     font-size: 100%;
 
@@ -212,7 +213,7 @@ export const BackButtonWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10%;
+    width:  ${({using}) => (using ? '100%' : '10%')};
 `
 
 export const LinksWrapper = styled.div`
