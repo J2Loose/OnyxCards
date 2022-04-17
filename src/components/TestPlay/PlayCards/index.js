@@ -4,7 +4,7 @@ import { useDeck } from '../../../hooks/useDeck'
 import FlashcardList from './FlashcardList'
 import { DeckDisplay, DeckViewer, TestContainer, TestNavbar, Text, Title, TestBody, DecksWrapper, ButtonWrap, BackButton, BackButtonWrapper } from '../testPlayElements';
 
-export default function TestPlayCards() {
+export default function PlayCards() {
     const { deckId } = useParams()
     const { childCards } = useDeck(deckId)
     const history = useHistory()
@@ -35,23 +35,6 @@ export default function TestPlayCards() {
 }
 
 
-        // <div>
-        //     <Sidebar />
-        //     <UseContainer>
-        //         <UseWrap>
-        //             <Title>Time to Revise!</Title>
-        //         </UseWrap>    
-        //         <UseWrapper>
-        //             <UseCard>
-        //                 <CardBody>
-        //                     <CardHeader>Use your Flashcards</CardHeader>
-        //                     <CardSection2>
-        //                         <FlashcardList flashcards={childCards} />
-        //                     </CardSection2>
-        //                 </CardBody>
-        //             </UseCard>
-        //         </UseWrapper>
-        //     </UseContainer> 
-        // </div>
+
 
     

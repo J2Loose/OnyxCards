@@ -10,7 +10,6 @@ import {
     DeckDisplay,
     Text,
     DeckViewer,
-    ButtonWrap,
     DeckBox,
     LinksWrapper,
     HyperLink,
@@ -26,7 +25,7 @@ import { useAuth } from '../../contexts/AuthContext'
 
 
 
-const TestPlay = () => {
+const Play = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [error, setError] = useState('')
     const { deckId } = useParams()
@@ -117,4 +116,4 @@ const TestPlay = () => {
 
 
 
-export default TestPlay
+export default Play

@@ -249,5 +249,21 @@ export const Option = styled.button`
         background: white;
         color: #F98200;
     }
+
+    @media screen and (max-width: 768px) {
+        width: 90%;
+    }
     
+`
+
+export const OptionText = styled.div`
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `

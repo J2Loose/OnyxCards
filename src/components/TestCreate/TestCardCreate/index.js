@@ -3,11 +3,10 @@ import TestAddCard from './TestAddCard'
 import { useParams, useHistory } from 'react-router-dom'
 import { useDeck } from '../../../hooks/useDeck'
 import TestCard from './TestCard'
-import Sidebar from '../../Sidebar'
 import {
     TestContainer,
     TestNavbar,
-    TestBody,
+    TestBody2,
     Title,
     SearchWrapper,
     Search,
@@ -22,7 +21,7 @@ import {
 } 
 from '../testCreateElements'
 
-export default function TestShowCards() {
+export default function ShowCards() {
     const { deckId } = useParams()
     const { deck, childCards } = useDeck(deckId)
     const [searchTerm, setSearchTerm] = useState('')
@@ -48,7 +47,7 @@ export default function TestShowCards() {
                     }}
                 />
             </SearchWrapper>
-            <TestBody>
+            <TestBody2>
                 <DecksWrapper>
                     <DeckDisplay>
                         <Text>Your Cards</Text>
@@ -76,7 +75,7 @@ export default function TestShowCards() {
                         )}
                     </DeckDisplay>
                 </DecksWrapper>
-            </TestBody>
+            </TestBody2>
         </TestContainer>
     )
 }

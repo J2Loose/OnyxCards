@@ -1,14 +1,7 @@
 import LandingPage from './landingpage'
 import { AuthProvider } from '../contexts/AuthContext'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Dash from '../components/Dash'
 import PrivateRoute from './PrivateRoute'
-import Create from './Pages(P)/Create'
-import Play from './Pages(P)/Play'
-import Stats from './Pages(P)/Statistics'
-import Profile from './Pages(P)/Profile'
-import ShowCards from './Pages(P)/CardCreation'
-import PlayCards from './Pages(P)/PlayCards'
 import Register from './Register'
 import SignIn from './Signin'
 import ForgotPassword from './ForgetPassword'
@@ -17,6 +10,7 @@ import TestCreate from './TestCreate'
 import TestShowCards from './TestCreate/TestCardCreate'
 import TestPlay from './TestPlay'
 import TestPlayCards from './TestPlay/PlayCards'
+import Profile from './TestProfile'
 
 
 function App() {
@@ -36,8 +30,6 @@ function App() {
           <PrivateRoute path='/create' component={TestCreate} />
           {/* Routing for the page where the user uses their created cards. Only accessible if the user is authenticated */}
           <PrivateRoute path='/play' component={TestPlay} />
-          {/* Routing for the user's stats page. Only accessible if the user is authenticated */}
-          <PrivateRoute path='/stats' component={Stats} />
           {/* Routing for the user's profile. Only accessible if the user is authenticated */}
           <PrivateRoute path='/profile' component={Profile} />
           {/* Routing for a specific deck that the user has created. Accessed by selecting a deck on the deck creation page. Path is specfic to that deck as it has the deck's ID. Only accessible if the user is authenticated */}

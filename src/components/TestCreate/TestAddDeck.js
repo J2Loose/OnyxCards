@@ -90,6 +90,7 @@ export default function TestAddDeck({ currentDeck }) {
                                         <Button variant='outline-primary' type='submit'>Add Deck</Button>
                                         <Button variant='outline-secondary' onClick={handleClose}>Close</Button>
                                 </form>
+                                <hr />
                                 {success && <Alert variant="success">{success}</Alert>}
                             </Modal.Body>
                     </Modal>

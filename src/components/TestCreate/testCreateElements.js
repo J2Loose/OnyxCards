@@ -21,7 +21,7 @@ export const TestNavbar = styled.nav`
 `
 
 export const Title = styled.div`
-    width: 80%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -46,7 +46,12 @@ export const TestBody = styled.div`
     display: flex;
     // justify-content: center;
     flex-direction: row;
-
+`
+export const TestBody2 = styled.div`
+    height: 77%;
+    display: flex;
+    // justify-content: center;
+    flex-direction: row;
 `
 
 export const SearchWrapper = styled.div`
@@ -248,5 +253,20 @@ export const Option = styled.button`
         background: white;
         color: #F98200;
     }
+
+    @media screen and (max-width: 768px) {
+        width: 90%;
+    }
     
+`
+
+export const OptionText = styled.div`
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `

@@ -3,7 +3,6 @@ import {
     TestContainer,
     TestNavbar,
     Title,
-    ProfileWrapper,
     ProfileIcon,
     TestBody,
     TextDiv,
@@ -17,23 +16,20 @@ import {
     LogoutWrapper,
     TestButton,
     ButtonWrapper,
-    TestSettings,
     SOText,
     Wrapper,
     ImgUse,
     ImgPlus,
-    ImgGraph
 } 
 from './testDashElements'
 import { useHistory } from 'react-router-dom'
 import {useAuth} from '../../contexts/AuthContext'
 import { FiPower } from 'react-icons/fi'
-import { VscSettingsGear } from 'react-icons/vsc'
 
 
 //link to settings page
 
-const TestDash = () => {
+const Dash = () => {
     const[hover1, setHover1] = useState(false)
     const[hover2, setHover2] = useState(false)
     const[hover3, setHover3] = useState(false)
@@ -76,9 +72,6 @@ const TestDash = () => {
         <TestContainer>
             <TestNavbar>
                 <Title>Hello There</Title>
-                <ProfileWrapper>
-                    <ProfileIcon />
-                </ProfileWrapper>
             </TestNavbar>
             <TestBody>
                 <TextDiv>
@@ -125,18 +118,18 @@ const TestDash = () => {
                     </TestSection>
                     <TestSection >
                     {hover3 ?
-                        <TSWrapper to='/stats' onMouseEnter={onHover3} onMouseLeave={onHover3}>
+                        <TSWrapper to='/profile' onMouseEnter={onHover3} onMouseLeave={onHover3}>
                             <ImgDiv hover={hover3}>
-                                <ImgGraph />
+                                <ProfileIcon />
                             </ImgDiv>
                             <SecTextDiv >
-                                <SecText>Check your stats</SecText>
+                                <SecText>View your profile</SecText>
                             </SecTextDiv> 
                         </TSWrapper>
                         :
-                        <TSWrapper to='/stats' onMouseEnter={onHover3} onMouseLeave={onHover3}>
+                        <TSWrapper to='/profile' onMouseEnter={onHover3} onMouseLeave={onHover3}>
                             <ImgDiv>
-                                <ImgGraph />
+                                <ProfileIcon />
                             </ImgDiv>
                         </TSWrapper>
                     }
@@ -152,14 +145,6 @@ const TestDash = () => {
                                 Leave 
                             </SOText>
                         </Wrapper>
-                        <Wrapper>
-                            <TestSettings to='/stats'>
-                                <VscSettingsGear />
-                            </TestSettings>
-                            <SOText >
-                                Settings
-                            </SOText>
-                        </Wrapper>
                     </ButtonWrapper>
                 </LogoutWrapper>
             </TestBody>
@@ -167,4 +152,4 @@ const TestDash = () => {
     )
 }
 
-export default TestDash
+export default Dash

@@ -14,21 +14,21 @@ import {
     DeckBox,
     LinksWrapper,
     HyperLink,
-    Option
+    Option,
+    OptionText
 } 
 from './testCreateElements'
 import TestAddDeck from './TestAddDeck'
 import { useDeck } from '../../hooks/useDeck'
 import { useParams, Link, useHistory } from 'react-router-dom'
-import Sidebar from '../Sidebar'
 import TestDeck from './TestDeck'
-import { AiOutlineHome, AiOutlinePlus, AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
 import { FiMonitor, FiLogOut } from 'react-icons/fi'
 import { useAuth } from '../../contexts/AuthContext'
 
 
 
-const TestCreate = () => {
+const Create = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [error, setError] = useState('')
     const { deckId } = useParams()
@@ -74,7 +74,7 @@ const TestCreate = () => {
                                 {childDecks.filter((childDeck)=> {
                                     if (searchTerm == '') {
                                         return childDeck
-                                    } else  if (childDeck.deckname.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                    } else if (childDeck.deckname.toLowerCase().includes(searchTerm.toLowerCase())) {
                                         return childDeck
                                     }
                                 }).map(childDeck => (
@@ -95,25 +95,33 @@ const TestCreate = () => {
                     <Option to='/dashboard' as={Link}>
                         <AiOutlineHome />
                     </Option>
-                    Home
+                    <OptionText>
+                        Home
+                    </OptionText>
                 </HyperLink>
                 <HyperLink>
                     <Option to='/play' as={Link}>
                         <FiMonitor />
                     </Option>
-                    Play
+                    <OptionText>
+                        Play
+                    </OptionText>
                 </HyperLink>
                 <HyperLink>
                     <Option to='/profile' as={Link}>
                         <AiOutlineUser />
                     </Option>
-                    Profile
+                    <OptionText>
+                        Profile
+                    </OptionText>
                 </HyperLink>
                 <HyperLink>
                     <Option onClick={handleLogout}>
                         <FiLogOut />
                     </Option>
-                    Logout
+                    <OptionText>
+                        Logout
+                    </OptionText>
                 </HyperLink>
             </LinksWrapper>
         </TestContainer>
@@ -122,4 +130,4 @@ const TestCreate = () => {
 
 
 
-export default TestCreate
+export default Create
