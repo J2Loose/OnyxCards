@@ -19,7 +19,7 @@ import {
 from './testProfileElements'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import { AiOutlineHome, AiOutlinePlus } from 'react-icons/ai'
-import { FiLogOut } from 'react-icons/fi'
+import { FiLogOut, FiMonitor } from 'react-icons/fi'
 import { useAuth } from '../../contexts/AuthContext'
 import { useDeck } from '../../hooks/useDeck'
 
@@ -91,7 +91,7 @@ export default function Profile() {
                 </HyperLink>
                 <HyperLink>
                     <Option to='/play' as={Link}>
-                        <AiOutlinePlus />
+                        <FiMonitor />
                     </Option>
                     <OptionText>
                         Play

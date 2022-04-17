@@ -13,7 +13,8 @@ import {
     DeckBox,
     LinksWrapper,
     HyperLink,
-    Option
+    Option,
+    OptionText
 } 
 from './testPlayElements'
 import { useDeck } from '../../hooks/useDeck'
@@ -89,25 +90,33 @@ const Play = () => {
                     <Option to='/dashboard' as={Link}>
                         <AiOutlineHome />
                     </Option>
-                    Home
+                    <OptionText>
+                        Home
+                    </OptionText>
                 </HyperLink>
                 <HyperLink>
                     <Option to='/create' as={Link}>
                         <AiOutlinePlus />
                     </Option>
-                    Create
+                    <OptionText>
+                        Create
+                    </OptionText>
                 </HyperLink>
                 <HyperLink>
                     <Option to='/profile' as={Link}>
                         <AiOutlineUser />
                     </Option>
-                    Profile
+                    <OptionText>
+                        Profile
+                    </OptionText>
                 </HyperLink>
                 <HyperLink>
                     <Option onClick={handleLogout}>
                         <FiLogOut />
                     </Option>
-                    Logout
+                    <OptionText>
+                        Logout
+                    </OptionText>
                 </HyperLink>
             </LinksWrapper>
         </TestContainer>
