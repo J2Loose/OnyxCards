@@ -12,7 +12,7 @@ const SignIn = () => {
         const [loading, setLoading] = useState(false)
         const history = useHistory()
 
-        //function which uses authcontext to log the user in, with exception handling
+        //function which logs the user in
         async function handleSubmit(e) {
             //stops the page from automatically refreshing
             e.preventDefault()
@@ -37,6 +37,7 @@ const SignIn = () => {
                     {/* signup form */}
                     <Form onSubmit={handleSubmit}>
                         <FormH1>Sign In</FormH1>
+                        {/* displays message if sign-in fails */}
                         {error && <Error variant="danger">{error}</Error>}
                             <FormLabel htmlFor='for'>Email</FormLabel>
                             <FormInput type='email' ref={emailRef} required/>

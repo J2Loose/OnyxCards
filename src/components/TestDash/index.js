@@ -33,12 +33,12 @@ const Dash = () => {
     const[hover1, setHover1] = useState(false)
     const[hover2, setHover2] = useState(false)
     const[hover3, setHover3] = useState(false)
-    const[hover4, setHover4] = useState(false)
-    const[hover5, setHover5] = useState(false)
     const[error, setError] = useState("")
     const { logout } = useAuth()
     const history = useHistory()
 
+
+    //functions to change the look of the buttons
     const onHover1 = () => {
         setHover1(!hover1)
     }
@@ -48,12 +48,7 @@ const Dash = () => {
     const onHover3 = () => {
         setHover3(!hover3)
     }
-    const onHover4 = () => {
-        setHover4(!hover4)
-    }
-    const onHover5 = () => {
-        setHover5(!hover5)
-    }
+
 
     async function handleLogout() {
         setError('')
@@ -79,6 +74,7 @@ const Dash = () => {
                 </TextDiv>
                 <SectionWrapper>
                     <TestSection >
+                    {/* Allows for the text to be hidden/shown whether user is hovering over the section */}
                     {hover1 ?
                         <TSWrapper to='/create' onMouseEnter={onHover1} onMouseLeave={onHover1}>
                             <ImgDiv hover={hover1}>
@@ -98,6 +94,7 @@ const Dash = () => {
                     }
                     </TestSection>
                     <TestSection >
+                    {/* Allows for the text to be hidden/shown whether user is hovering over the section */}
                     {hover2 ?
                         <TSWrapper to='/play' onMouseEnter={onHover2} onMouseLeave={onHover2}>
                             <ImgDiv hover={hover2}>
@@ -117,6 +114,7 @@ const Dash = () => {
                     }
                     </TestSection>
                     <TestSection >
+                    {/* Allows for the text to be hidden/shown whether user is hovering over the section */}
                     {hover3 ?
                         <TSWrapper to='/profile' onMouseEnter={onHover3} onMouseLeave={onHover3}>
                             <ImgDiv hover={hover3}>

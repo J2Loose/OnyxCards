@@ -40,6 +40,7 @@ const Register = () => {
                 setLoading(true)
                 await signup(emailRef.current.value, passwordRef.current.value)
                 setMessage('Registration Complete! Welcome to Onyx Cards') 
+                //waits for 1 second before redirecting the user to their dashboard
                 setTimeout(function() {
                     history.push('/dashboard')
                 }, delayInMilli)
@@ -54,6 +55,7 @@ const Register = () => {
             <FormWrap>
                 <Icon to='/'>OnyxCards</Icon>    
                 <FormContent>
+                    {/* Sign-up Form */}
                     <Form onSubmit={handleSubmit}>
                         <FormH1>Sign Up</FormH1>
                         {message && <Message variant="success">{message}</Message>}

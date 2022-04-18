@@ -37,9 +37,6 @@ import { Modal } from 'react-bootstrap'
 import { EmailAuthProvider, reauthenticateWithCredential, updateEmail, updatePassword, deleteUser } from 'firebase/auth'
 
 
-
-
-
 export default function Profile() {
     const [error, setError] = useState('')
     const [message, setMessage] = useState('')
@@ -47,8 +44,6 @@ export default function Profile() {
     const [open2, setOpen2] = useState(false)
     const { logout, currentUser } = useAuth()
     const history = useHistory()
-    const { deckId } = useParams()
-    const { deck, childDecks } = useDeck(deckId)
     const newEmailRef = useRef()
     const newConfirmEmailRef = useRef()
     const newPasswordRef = useRef()
@@ -61,24 +56,30 @@ export default function Profile() {
     
 
 
-
+//function to close the delete modal
     function handleClose(e) {
         e.preventDefault()
         setOpen2(false)
     }
 
+//function to open the delete modal
     function handleDelete() {
         setOpen2(true)
     }
 
-    
+    //function to reauthenticate user and then change their email
     async function EmailReAuth(e) {
         e.preventDefault()
+        //opens the status modal
         setOpen(true)
 
-
+        //stores the users credentials to be used for reauthentication
         const credential = EmailAuthProvider.credential(currentUser.email, currentPasswordRef.current.value);
+
+        //function responsible for reauthenticating a user. updateEmail() is now available to be used
         reauthenticateWithCredential(currentUser, credential).then(() => {
+
+            //email double verfication
             if (newEmailRef.current.value !== newConfirmEmailRef.current.value) {
                     return (
                         setError('Emails do not match'),
@@ -90,6 +91,7 @@ export default function Profile() {
                     )   
                 }
     
+            //checks if the user is trying to change their email to their current email
             if (newEmailRef.current.value == currentUser.email) {
                     return (
                         setError('This is your current email address'),
@@ -100,7 +102,7 @@ export default function Profile() {
                         }, delayInMilli) 
                     ) 
                 }
-
+            //firebase function for updating email. only accessible if reauthentication is a success
             updateEmail(currentUser, newEmailRef.current.value).then(() => {
                 setMessage('Email Successfully Changed')
                 setTimeout(function() {
@@ -130,7 +132,7 @@ export default function Profile() {
         setError('')
     }
 
-
+    //function to reauthenticate user and the change their password
     async function PasswordReAuth(e) {
         e.preventDefault()
         setOpen(true)
@@ -188,6 +190,7 @@ export default function Profile() {
 
     }
 
+    //function to reauthenticate user and then delete their account
     async function DeleteReAuth(e) {
         e.preventDefault()
 
@@ -204,7 +207,7 @@ export default function Profile() {
 
     }
 
-
+    //function to log the user out
     async function handleLogout() {
         setError('')
 
@@ -243,6 +246,7 @@ export default function Profile() {
                     <FormWrapper>
                         <FormsViewer>
                             <Text>Change Email</Text>
+                            {/* Form for changing email */}
                             <Form onSubmit={EmailReAuth}>
                                 <FieldWrapper>
                                     <Input type='text' placeholder='Enter New Email' ref={newEmailRef} required />
@@ -262,6 +266,7 @@ export default function Profile() {
                     <FormWrapper>
                         <FormsViewer>
                             <Text>Change Password</Text>
+                            {/* Form for changing password */}
                             <Form onSubmit={PasswordReAuth}>
                                 <FieldWrapper>
                                     <Input type='text' placeholder='Enter New Password' ref={newPasswordRef} required/>
@@ -280,6 +285,7 @@ export default function Profile() {
                     </FormWrapper>
                 </FormsWrapper>
             </TestBody>
+            {/* Menu Bar showing other pages for user to use */}
             <LinksWrapper>
                 <HyperLink>
                     <Option to='/dashboard' as={Link}>
@@ -327,6 +333,7 @@ export default function Profile() {
         {/* Modal to confirm whether the user wants to delete their account or not */}
         <Modal show={open2}>
             <Modal.Header>Confirm Delete Account</Modal.Header>
+            {/* Form to confirm deletion of account */}
             <form onSubmit={DeleteReAuth}>
                 <Modal.Body>
                     {message && <Message variant="success">{message}</Message>}
@@ -339,7 +346,6 @@ export default function Profile() {
                     <button type='submit'>Delete</button>
                 </Modal.Footer>
             </form>
-
         </Modal>
     </>
   )

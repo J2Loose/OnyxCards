@@ -53,7 +53,7 @@ export function useDeck(deckId = null, deck = null) {
     childCards: []
   })
 
-  //used to retrieve decks/cards made by the current user
+  //specifies the current user
   const { currentUser } = useAuth()
 
 

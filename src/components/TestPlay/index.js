@@ -52,6 +52,7 @@ const Play = () => {
                 <Title>Use your decks</Title>
             </TestNavbar>
             <SearchWrapper>
+                {/* Live search */}
                 <Search 
                     type='text' 
                     placeholder='Enter deck name...'
@@ -64,11 +65,15 @@ const Play = () => {
                 <DecksWrapper>
                     <DeckDisplay>
                         <Text>Your Decks</Text>
+                        {/* maps through the user's decks */}
                         {childDecks.length > 0 && (
                             <DeckViewer>
+                                {/* Filter used for the search */}
                                 {childDecks.filter((childDeck)=> {
+                                    //shows all decks if search bar is empty
                                     if (searchTerm == '') {
                                         return childDeck
+                                        // converts search term and deck names to lowercase for easier searching
                                     } else  if (childDeck.deckname.toLowerCase().includes(searchTerm.toLowerCase())) {
                                         return childDeck
                                     }

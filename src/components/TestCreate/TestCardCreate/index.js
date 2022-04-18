@@ -34,10 +34,12 @@ export default function ShowCards() {
             </TestNavbar>
             <SearchWrapper>
                 <BackButtonWrapper>
+                    {/* Back Button */}
                     <BackButton onClick={history.goBack}>
                         Go back
                     </BackButton>
                 </BackButtonWrapper>
+                {/* Live Search */}
                 <Search 
                     type='text'
                     placeholder='Enter card name...'
@@ -52,13 +54,18 @@ export default function ShowCards() {
                     <DeckDisplay>
                         <Text>Your Cards</Text>
                         <ButtonWrap>
+                            {/* Function to add card to deck */}
                             <TestAddCard currentDeck={deck}/>
                         </ButtonWrap>
+                        {/* maps through the cards in the given deck */}
                         {childCards.length > 0 && (
                             <DeckViewer>
+                                {/* Filter used for the search */}
                                 {childCards.filter((childCard)=> {
+                                    //shows all cards if search bar is empty
                                     if (searchTerm == '') {
                                         return childCard
+                                    //converts search term and deck names to lowercase for easier searching
                                     } else if (childCard.front.toLowerCase().includes(searchTerm.toLowerCase())) {
                                         return childCard
                                     }

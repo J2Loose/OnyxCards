@@ -4,12 +4,14 @@ import { useDeck } from '../../../hooks/useDeck'
 import FlashcardList from './FlashcardList'
 import { DeckDisplay, DeckViewer, TestContainer, TestNavbar, Text, Title, TestBody, DecksWrapper, ButtonWrap, BackButton, BackButtonWrapper } from '../testPlayElements';
 
+
+//function to show flashcards and allow user to go back
 export default function PlayCards() {
     const { deckId } = useParams()
     const { childCards } = useDeck(deckId)
     const history = useHistory()
 
-    //calls flashcard list with the childCards array
+
     return (
         <TestContainer>
             <TestNavbar>
@@ -22,7 +24,9 @@ export default function PlayCards() {
                             Use your flashcards
                         </Text>
                             <DeckViewer>
+                                {/* Shows the flashcards */}
                                 <FlashcardList flashcards={childCards}/>
+                                    {/* Button to allow uer to go back to the deck selection page */}
                                     <BackButtonWrapper using={true}>
                                         <BackButton using={true} onClick={history.goBack}>Done?</BackButton>
                                     </BackButtonWrapper>            

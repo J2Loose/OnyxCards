@@ -17,6 +17,7 @@ function App() {
 
   return (
     <Router>
+      {/* AuthProvider is used to allow firebase's auth functions to be used throughout my project */}
       <AuthProvider>
         <Switch>
           {/* Routing for the user's dashboard. Only accessible if the user is authenticated */}
