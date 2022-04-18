@@ -137,8 +137,10 @@ export default function Profile() {
         e.preventDefault()
         setOpen(true)
 
-
+         //stores the users credentials to be used for reauthentication
         const credential2 = EmailAuthProvider.credential(currentUser.email, currentPassword2Ref.current.value);
+
+        //function responsible for reauthenticating a user. updateEmail() is now available to be used
         reauthenticateWithCredential(currentUser, credential2).then(() => {
             if (newPasswordRef.current.value !== newConfirmPasswordRef.current.value) {
                     return (
@@ -151,6 +153,7 @@ export default function Profile() {
                     )   
                 }
 
+            //checks to see if password given is longer than 6 characters
             if (newPasswordRef.current.value.length < minimumLength) {
                 return (
                     setError('New password must be greater than or equal to 6 characters'),
@@ -162,6 +165,7 @@ export default function Profile() {
                 )
             }
 
+            //firebase function for updating password. only accessible if reauthentication is a success
             updatePassword(currentUser, newPasswordRef.current.value).then(() => {
                 setMessage('Password Successfully Changed')
                 setTimeout(function() {
