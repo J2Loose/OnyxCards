@@ -31,9 +31,7 @@ export function AuthProvider({ children }) {
         return auth.signOut()
     }
 
-    function ReAuth(password) {
-        return currentUser.reauthenticateWithCredential(password)
-    }
+
 
     useEffect(() => {
          const unsubscribe = auth.onAuthStateChanged(user => {
@@ -50,8 +48,7 @@ export function AuthProvider({ children }) {
         signup,
         login,
         resetPassword, 
-        logout,
-        ReAuth
+        logout
     }
 
     return (

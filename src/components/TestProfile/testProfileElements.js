@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { CgProfile as profile } from 'react-icons/cg'
+import { FiTrash2 as trash } from 'react-icons/fi'
 import { Alert } from 'react-bootstrap'
 
 
@@ -15,6 +16,11 @@ export const TestContainer = styled.div`
 export const Avatar = styled(profile)`
     width: 80%;
     height: 80%;
+
+    @media screen and (max-width: 768px) {
+        height: 100%;
+    }
+
 `
 
 export const TestNavbar = styled.nav`
@@ -54,7 +60,7 @@ export const TestBody = styled.div`
 `
 
 export const ProfileWrapper = styled.div`
-    height: 50%;
+    height: 40%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -63,7 +69,7 @@ export const ProfileWrapper = styled.div`
 
 export const Viewer = styled.section`
     height: 80%;
-    width: 90%;
+    width: 95%;
     background: grey;
     border-radius: 20px;
     display: flex;
@@ -71,6 +77,7 @@ export const Viewer = styled.section`
 
     @media screen and (max-width: 768px) {
         width: 70%;
+        flex-direction: column;
     }
 `
 export const Image = styled.div`
@@ -83,6 +90,7 @@ export const Image = styled.div`
 
     @media screen and (max-width: 768px) {
         width: 100%;
+        height: 80%;
     }
 `
 export const Email = styled.div`
@@ -98,7 +106,61 @@ export const Email = styled.div`
     }
 `
 
-export const StatsViewer = styled.section`
+export const DeleteBox = styled.div`
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        height: 20%;
+    }
+`
+
+export const DeleteButton = styled.button`
+    width: 90%;
+    height: 40%;
+    background: none;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: #f00d05 solid 3px;;
+
+    &:hover {
+        background: #f00d05;
+        border: #f00d05 solid 3px;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 40%;
+        height: 90%;
+    }
+`
+
+export const DeleteIcon = styled(trash)`
+    width: 80%;
+    height: 80%;
+    color: white;
+`
+
+export const FormWrapper = styled.div`
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        height: 50%;
+    }
+`
+
+export const FormsViewer = styled.section`
     color: white;
     font-size: 20px;
     background: grey;
@@ -108,20 +170,93 @@ export const StatsViewer = styled.section`
     align-items: center;
     justify-content: center;
     border-radius: 20px;
+    flex-direction: column;
 
     @media screen and (max-width: 768px) {
         width: 70%;
+        height: 100%;
     }
 `
 
 
-export const StatsWrapper = styled.div`
-    height: 50%;
+export const FormsWrapper = styled.div`
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        overflow: auto;
+    }
+`
+
+
+export const Text = styled.div`
+    height: 20%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 `
 
+
+export const Form = styled.form`
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+`
+
+export const Input = styled.input`
+    width: 80%;
+    height: 90%;
+    border-radius: 20px;
+    border: none;
+`
+
+
+export const Button = styled.button`
+    background: #F98200;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    height: 60%;
+    width: 40%;
+
+    &:hover {
+        background: white;
+        border: #F98200 solid 3px;
+        color: #F98200;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 10px;
+    }
+`
+
+export const Message = styled(Alert)`
+    background: #004a04;
+    color: #fff;
+    border: none;
+`
+
+export const Error = styled(Alert)`
+    background: #f00d05;
+    color: #fff;
+    border: none;
+`
+
+export const FieldWrapper = styled.div`
+    height: 25%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border: dashed blue;
+`
 
 
 export const LinksWrapper = styled.div`
