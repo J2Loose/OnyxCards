@@ -1,11 +1,12 @@
 import React from 'react'
 import Flashcard from './Flashcard'
 import { Carousel } from 'react-bootstrap'
+import { ListWrapper } from '../testPlayElements'
 
 export default function FlashcardList({ flashcards }) {
     return (
         //shows the users cards using carousel from react bootstrap
-        <div class='card-grid'>
+        <ListWrapper >
             {/* interval makes sure that the next card doesn't automatically come up */}
             <Carousel interval={null}>
             {/* maps through the array passed to this function */}
@@ -17,6 +18,6 @@ export default function FlashcardList({ flashcards }) {
                 )
             })}
             </Carousel>
-        </div>
+        </ListWrapper>
     )
 }

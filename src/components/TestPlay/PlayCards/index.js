@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom'
 import { useDeck } from '../../../hooks/useDeck'
 import FlashcardList from './FlashcardList'
-import { DeckDisplay, DeckViewer, TestContainer, TestNavbar, Text, Title, TestBody, DecksWrapper, ButtonWrap, BackButton, BackButtonWrapper } from '../testPlayElements';
+import { DeckDisplay, DeckViewer, TestContainer, TestNavbar, Text, Title, TestBody, DecksWrapper, ButtonWrap, BackButton, BackButtonWrapper, ListWrapper } from '../testPlayElements';
 
 
 //function to show flashcards and allow user to go back
@@ -26,11 +26,11 @@ export default function PlayCards() {
                             <DeckViewer>
                                 {/* Shows the flashcards */}
                                 <FlashcardList flashcards={childCards}/>
-                                    {/* Button to allow uer to go back to the deck selection page */}
-                                    <BackButtonWrapper using={true}>
-                                        <BackButton using={true} onClick={history.goBack}>Done?</BackButton>
-                                    </BackButtonWrapper>            
                             </DeckViewer>
+                            {/* Button to allow user to go back to the deck selection page */}
+                            <BackButtonWrapper using={true}>
+                                <BackButton using={true} onClick={history.goBack}>Done?</BackButton>
+                            </BackButtonWrapper>            
                     </DeckDisplay>
                 </DecksWrapper>
             </TestBody>

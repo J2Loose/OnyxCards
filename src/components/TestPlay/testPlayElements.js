@@ -88,6 +88,7 @@ export const DeckDisplay = styled.div`
     height: 90%;
     background: black;
     border-radius: 40px;
+    border: dashed green;
 `
 
 export const Text = styled.div`
@@ -99,6 +100,7 @@ export const Text = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    border: dashed yellow;
 
     @media screen and (max-width: 768px) {
         font-size: 100%;
@@ -114,6 +116,7 @@ export const DeckViewer = styled.div`
     overflow: auto;
     overflow-wrap: break-word;
     flex-direction: column;
+    border: dashed red;
 `
 
 export const CreateButton = styled.button`
@@ -186,6 +189,7 @@ export const DeckBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
 `
 
 export const BackButton = styled.button`
@@ -213,6 +217,7 @@ export const BackButtonWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    border: dashed blue;
     width:  ${({using}) => (using ? '100%' : '10%')};
 `
 
@@ -266,4 +271,8 @@ export const OptionText = styled.div`
     @media screen and (max-width: 768px) {
         display: none;
     }
+`
+
+export const ListWrapper = styled.div`
+    border: dashed white;
 `
