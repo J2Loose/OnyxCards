@@ -5,12 +5,12 @@ import PrivateRoute from './PrivateRoute'
 import Register from './Register'
 import SignIn from './Signin'
 import ForgotPassword from './ForgetPassword'
-import TestDash from './TestDash'
-import TestCreate from './TestCreate'
-import TestShowCards from './TestCreate/TestCardCreate'
-import TestPlay from './TestPlay'
-import TestPlayCards from './TestPlay/PlayCards'
-import Profile from './TestProfile'
+import TestDash from './Dashboard'
+import TestCreate from './Create'
+import TestShowCards from './Create/CardCreate'
+import TestPlay from './Play'
+import TestPlayCards from './Play/PlayCards'
+import Profile from './Profile'
 
 
 function App() {

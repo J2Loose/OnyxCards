@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { GiCardRandom } from 'react-icons/gi'
 import { database } from '../../../firebase'
 import { Modal, Button } from 'react-bootstrap'
-import { Card } from '../testCreateElements'
+import { Cards } from '../CreateElements'
 
 
 //function to show and delete individual cards
-export default function TestCard({ card }) {
+export default function Card({ card }) {
     const [ show, setShow ] = useState(false)
     var cardRef = database.cards.doc(card.id);
 
@@ -28,10 +28,10 @@ export default function TestCard({ card }) {
     return (
         <>
             {/* shows each card in the array with this styling */}
-            <Card onClick={handleClick}>
+            <Cards onClick={handleClick}>
                 <GiCardRandom className='mr-2' />
                 {card.front}
-            </Card>
+            </Cards>
             {/* modal to confirm deletion */}
             <Modal show={show} centered>
                 <Modal.Header>Confirm Delete</Modal.Header>

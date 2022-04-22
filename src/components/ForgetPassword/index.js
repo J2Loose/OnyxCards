@@ -31,6 +31,7 @@ const ForgotPassword = () => {
             setMessage('')
             setError('')
             setLoading(true)
+            //firebase function that resets the user's password
             await resetPassword(emailRef.current.value)
             setMessage('Check your inbox for further instructions')     
         } catch {
@@ -45,13 +46,16 @@ const ForgotPassword = () => {
             <FormWrap>
                 <Icon to='/'>OnyxCards</Icon>  
                 <FormContent>
+                    {/* form to enter email for password reset */}
                     <Form onSubmit={handleReset}>
                         <FormH1>Reset Password</FormH1>
+                        {/* displays message based on whether the process succeeds or not */}
                         {error && <Error variant="danger">{error}</Error>}
                         {message && <Message variant="success">{message}</Message>}
                         <FormLabel>Email</FormLabel>    
                         <FormInput type='email' ref={emailRef} required/>
                         <FormButton type='submit' disabled={loading}>Reset Password</FormButton>
+                        {/* Redirects to signin page */}
                         <Text to='/signin'>Remember your password?</Text>
                     </Form>    
                 </FormContent>  

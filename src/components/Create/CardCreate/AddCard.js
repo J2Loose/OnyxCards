@@ -2,10 +2,12 @@ import React, {useState} from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { Button, Modal } from 'react-bootstrap'
 import { database } from '../../../firebase'
-import { CreateButton } from '../testCreateElements'
+import { CreateButton } from '../CreateElements'
 import { useAuth } from '../../../contexts/AuthContext'
 
-export default function TestAddCard({ currentDeck }) {
+
+//function to create a new card. Takes in the deck you are currently within. Should be the deck you selected.
+export default function AddCard({ currentDeck }) {
     const [ open, setOpen ] = useState(false)
     const [ front, setFront ] = useState('')
     const [ back, setBack ] = useState('')
@@ -25,6 +27,7 @@ export default function TestAddCard({ currentDeck }) {
     function handleSubmit(e) {
         e.preventDefault()
 
+        //card added to database with these fields
         database.cards.add({
             front: front,
             back: back,

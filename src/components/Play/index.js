@@ -10,25 +10,23 @@ import {
     DeckDisplay,
     Text,
     DeckViewer,
-    ButtonWrap,
     DeckBox,
     LinksWrapper,
     HyperLink,
     Option,
     OptionText
 } 
-from './testCreateElements'
-import TestAddDeck from './TestAddDeck'
+from './PlayElements'
 import { useDeck } from '../../hooks/useDeck'
 import { useParams, Link, useHistory } from 'react-router-dom'
-import TestDeck from './TestDeck'
-import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
-import { FiMonitor, FiLogOut } from 'react-icons/fi'
+import Deck from './Deck'
+import { AiOutlineHome, AiOutlinePlus, AiOutlineUser } from 'react-icons/ai'
+import { FiLogOut } from 'react-icons/fi'
 import { useAuth } from '../../contexts/AuthContext'
 
 
 
-const Create = () => {
+const Play = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [error, setError] = useState('')
     const { deckId } = useParams()
@@ -51,10 +49,10 @@ const Create = () => {
     return (
         <TestContainer>
             <TestNavbar>
-                <Title>Create and Search through your decks</Title>
+                <Title>Use your decks</Title>
             </TestNavbar>
             <SearchWrapper>
-                {/* Live Search */}
+                {/* Live search */}
                 <Search 
                     type='text' 
                     placeholder='Enter deck name...'
@@ -67,19 +65,16 @@ const Create = () => {
                 <DecksWrapper>
                     <DeckDisplay>
                         <Text>Your Decks</Text>
-                        <ButtonWrap>
-                            <TestAddDeck currentDeck={deck}/>
-                        </ButtonWrap>
                         {/* maps through the user's decks */}
                         {childDecks.length > 0 && (
                             <DeckViewer>
                                 {/* Filter used for the search */}
                                 {childDecks.filter((childDeck)=> {
-                                    //shows all decks if the search bar is empty
+                                    //shows all decks if search bar is empty
                                     if (searchTerm == '') {
                                         return childDeck
-                                        // converts search term and deck names to lowercase for easier searching                                    
-                                    } else if (childDeck.deckname.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                        // converts search term and deck names to lowercase for easier searching
+                                    } else  if (childDeck.deckname.toLowerCase().includes(searchTerm.toLowerCase())) {
                                         return childDeck
                                     }
                                 }).map(childDeck => (
@@ -87,7 +82,7 @@ const Create = () => {
                                         key={childDeck.id} 
                                         className='p-2'
                                     >
-                                        <TestDeck deck={childDeck}/>
+                                        <Deck deck={childDeck}/>
                                     </DeckBox>
                                 ))}
                             </DeckViewer>
@@ -105,11 +100,11 @@ const Create = () => {
                     </OptionText>
                 </HyperLink>
                 <HyperLink>
-                    <Option to='/play' as={Link}>
-                        <FiMonitor />
+                    <Option to='/create' as={Link}>
+                        <AiOutlinePlus />
                     </Option>
                     <OptionText>
-                        Play
+                        Create
                     </OptionText>
                 </HyperLink>
                 <HyperLink>
@@ -135,4 +130,4 @@ const Create = () => {
 
 
 
-export default Create
+export default Play

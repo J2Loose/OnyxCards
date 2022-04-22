@@ -38,6 +38,7 @@ const Register = () => {
                 setError('')
                 setMessage('')
                 setLoading(true)
+                //firebase function that creates a user account
                 await signup(emailRef.current.value, passwordRef.current.value)
                 setMessage('Registration Complete! Welcome to Onyx Cards') 
                 //waits for 1 second before redirecting the user to their dashboard
@@ -58,6 +59,7 @@ const Register = () => {
                     {/* Sign-up Form */}
                     <Form onSubmit={handleSubmit}>
                         <FormH1>Sign Up</FormH1>
+                        {/* Messages based on the process was successful or not */}
                         {message && <Message variant="success">{message}</Message>}
                         {error && <Error variant="danger">{error}</Error>}
                             <FormLabel htmlFor='for'>Email</FormLabel>
@@ -67,6 +69,7 @@ const Register = () => {
                             <FormLabel htmlfor='for'>Confirm Password</FormLabel>
                                 <FormInput type='password' ref={passwordConfirmRef} required />
                             <FormButton type='submit' disabled={loading}>Sign Up</FormButton>
+                            {/* Redirects user to log-in page */}
                             <Text to='/signin'>Already have an account?</Text>
                     </Form>
                 </FormContent>

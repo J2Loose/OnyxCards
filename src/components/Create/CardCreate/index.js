@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import TestAddCard from './TestAddCard'
+import AddCard from './AddCard'
 import { useParams, useHistory } from 'react-router-dom'
 import { useDeck } from '../../../hooks/useDeck'
-import TestCard from './TestCard'
+import Card from './Card'
 import {
     TestContainer,
     TestNavbar,
@@ -19,7 +19,7 @@ import {
     BackButton,
     BackButtonWrapper
 } 
-from '../testCreateElements'
+from '../CreateElements'
 
 export default function ShowCards() {
     const { deckId } = useParams()
@@ -55,7 +55,7 @@ export default function ShowCards() {
                         <Text>Your Cards</Text>
                         <ButtonWrap>
                             {/* Function to add card to deck */}
-                            <TestAddCard currentDeck={deck}/>
+                            <AddCard currentDeck={deck}/>
                         </ButtonWrap>
                         {/* maps through the cards in the given deck */}
                         {childCards.length > 0 && (
@@ -74,7 +74,7 @@ export default function ShowCards() {
                                         key={childCard.id} 
                                         className='p-2'
                                     >
-                                        <TestCard card={childCard} />
+                                        <Card card={childCard} />
                                     </DeckBox>
                                 ))}
 

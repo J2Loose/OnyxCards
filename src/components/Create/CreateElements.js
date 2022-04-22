@@ -145,7 +145,7 @@ export const ButtonWrap = styled.div`
     justify-content: center;
 `
 
-export const Deck = styled.section`
+export const Decks = styled.section`
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -167,7 +167,7 @@ export const Deck = styled.section`
     }
 `
 
-export const Card = styled.section`
+export const Cards = styled.section`
     border-radius: 10px;
     display: flex;
     align-items: center;

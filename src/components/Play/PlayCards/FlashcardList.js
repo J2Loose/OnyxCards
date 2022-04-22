@@ -1,7 +1,7 @@
 import React from 'react'
 import Flashcard from './Flashcard'
 import { Carousel } from 'react-bootstrap'
-import { ListWrapper } from '../testPlayElements'
+import { ListWrapper } from '../PlayElements'
 
 export default function FlashcardList({ flashcards }) {
     return (

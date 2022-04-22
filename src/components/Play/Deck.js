@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { GiStack } from 'react-icons/gi'
 import { Button } from 'react-bootstrap'
-import { ShowDeck } from './testPlayElements'
+import { ShowDeck } from './PlayElements'
 
 export default function PlayDeck({ deck }) {
     return (

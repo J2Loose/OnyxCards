@@ -10,23 +10,25 @@ import {
     DeckDisplay,
     Text,
     DeckViewer,
+    ButtonWrap,
     DeckBox,
     LinksWrapper,
     HyperLink,
     Option,
     OptionText
 } 
-from './testPlayElements'
+from './CreateElements'
+import AddDeck from './AddDeck'
 import { useDeck } from '../../hooks/useDeck'
 import { useParams, Link, useHistory } from 'react-router-dom'
-import Deck from './Deck'
-import { AiOutlineHome, AiOutlinePlus, AiOutlineUser } from 'react-icons/ai'
-import { FiLogOut } from 'react-icons/fi'
+import TestDeck from './Deck'
+import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
+import { FiMonitor, FiLogOut } from 'react-icons/fi'
 import { useAuth } from '../../contexts/AuthContext'
 
 
 
-const Play = () => {
+const Create = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [error, setError] = useState('')
     const { deckId } = useParams()
@@ -34,6 +36,7 @@ const Play = () => {
     const history = useHistory()
     const { logout } = useAuth()
 
+    //function to log the user out
     async function handleLogout() {
         setError('')
 
@@ -49,10 +52,10 @@ const Play = () => {
     return (
         <TestContainer>
             <TestNavbar>
-                <Title>Use your decks</Title>
+                <Title>Create and Search through your decks</Title>
             </TestNavbar>
             <SearchWrapper>
-                {/* Live search */}
+                {/* Live Search */}
                 <Search 
                     type='text' 
                     placeholder='Enter deck name...'
@@ -65,24 +68,29 @@ const Play = () => {
                 <DecksWrapper>
                     <DeckDisplay>
                         <Text>Your Decks</Text>
+                        <ButtonWrap>
+                            {/* Function to add a new deck */}
+                            <AddDeck currentDeck={deck}/>
+                        </ButtonWrap>
                         {/* maps through the user's decks */}
                         {childDecks.length > 0 && (
                             <DeckViewer>
                                 {/* Filter used for the search */}
                                 {childDecks.filter((childDeck)=> {
-                                    //shows all decks if search bar is empty
+                                    //shows all decks if the search bar is empty
                                     if (searchTerm == '') {
                                         return childDeck
-                                        // converts search term and deck names to lowercase for easier searching
-                                    } else  if (childDeck.deckname.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                        // converts search term and deck names to lowercase for easier searching                                    
+                                    } else if (childDeck.deckname.toLowerCase().includes(searchTerm.toLowerCase())) {
                                         return childDeck
                                     }
                                 }).map(childDeck => (
+                                    //this shows for each item in the childDeck array
                                     <DeckBox 
                                         key={childDeck.id} 
                                         className='p-2'
                                     >
-                                        <Deck deck={childDeck}/>
+                                        <TestDeck deck={childDeck}/>
                                     </DeckBox>
                                 ))}
                             </DeckViewer>
@@ -90,6 +98,7 @@ const Play = () => {
                     </DeckDisplay>
                 </DecksWrapper>
             </TestBody>
+            {/* Taskbar used to change pages/logout */}
             <LinksWrapper>
                 <HyperLink>
                     <Option to='/dashboard' as={Link}>
@@ -100,11 +109,11 @@ const Play = () => {
                     </OptionText>
                 </HyperLink>
                 <HyperLink>
-                    <Option to='/create' as={Link}>
-                        <AiOutlinePlus />
+                    <Option to='/play' as={Link}>
+                        <FiMonitor />
                     </Option>
                     <OptionText>
-                        Create
+                        Play
                     </OptionText>
                 </HyperLink>
                 <HyperLink>
@@ -130,4 +139,4 @@ const Play = () => {
 
 
 
-export default Play
+export default Create

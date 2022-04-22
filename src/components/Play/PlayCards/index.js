@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom'
 import { useDeck } from '../../../hooks/useDeck'
 import FlashcardList from './FlashcardList'
-import { DeckDisplay, DeckViewer, TestContainer, TestNavbar, Text, Title, TestBody, DecksWrapper, ButtonWrap, BackButton, BackButtonWrapper, ListWrapper } from '../testPlayElements';
+import { DeckDisplay, DeckViewer, TestContainer, TestNavbar, Text, Title, TestBody, DecksWrapper, ButtonWrap, BackButton, BackButtonWrapper, ListWrapper } from '../PlayElements';
 
 
 //function to show flashcards and allow user to go back

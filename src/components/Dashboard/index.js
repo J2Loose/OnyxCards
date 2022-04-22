@@ -21,7 +21,7 @@ import {
     ImgUse,
     ImgPlus,
 } 
-from './testDashElements'
+from './DashboardElements'
 import { useHistory } from 'react-router-dom'
 import {useAuth} from '../../contexts/AuthContext'
 import { FiPower } from 'react-icons/fi'

@@ -13,7 +13,7 @@ const app = firebase.initializeApp({
   appId: "1:528746379678:web:f3af58f09173d0003d3e8f",
   measurementId: "G-39HJV7B8FB"
 })
-
+ 
 //function to utilise firebase's database functions
 const firestore = app.firestore()
 

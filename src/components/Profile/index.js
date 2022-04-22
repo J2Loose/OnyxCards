@@ -27,7 +27,7 @@ import {
     DeleteButton,
     DeleteIcon
 } 
-from './testProfileElements'
+from './ProfileElements'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import { AiOutlineHome, AiOutlinePlus } from 'react-icons/ai'
 import { FiLogOut, FiMonitor, FiTrash2 } from 'react-icons/fi'

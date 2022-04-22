@@ -20,7 +20,9 @@ const SignIn = () => {
             try {
                 setError('')
                 setLoading(true)
+                //firebase function that logs user in using email and password
                 await login(emailRef.current.value, passwordRef.current.value)
+                //if login is successful, user is sent directly to dashboard
                 history.push('/dashboard')
             } catch {
                 setError('Failed to log in')
@@ -44,6 +46,7 @@ const SignIn = () => {
                             <FormLabel htmlFor='for'>Password</FormLabel>
                             <FormInput type='password'  ref={passwordRef} required/>
                             <FormButton type='submit' disabled={loading}>Sign In</FormButton>
+                            {/* Buttons to forgot password and sign-in pages */}
                             <Text to='/forgotten'>Forgot password?</Text>
                             <Text to='/signup'>Don't have an account?</Text>
                     </Form>
