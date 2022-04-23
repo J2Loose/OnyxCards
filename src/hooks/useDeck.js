@@ -11,7 +11,7 @@ const ACTIONS = {
 
 }
 
-//creating the "folder" in which decks will be created. Basically the deck creation page
+//creating the "folder" in which decks will be created. AKA the deck creation page
 const ROOT_DECK = { name: 'Root', id: null, path: [] }
 
 
@@ -110,7 +110,7 @@ export function useDeck(deckId = null, deck = null) {
     .where('parentId', '==', deckId)
     .where('userId', '==', currentUser.uid)
     .orderBy('createdAt')
-    //all cards that match the conditions above, are added to the array childCards
+    //all cards that match the conditions above, are added to the array childCards. childCards is the user's cards.
     .onSnapshot(snapshot => {
       dispatch({
         type: ACTIONS.SET_CHILD_CARDS,

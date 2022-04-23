@@ -21,6 +21,7 @@ export default function Flashcard({ flashcard }) {
                 borderRadius: '50px'
             }}
         >
+            {/* Shows the flashcards */}
             {flip ? flashcard.back : flashcard.front}
         </div>
     )
