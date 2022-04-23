@@ -35,7 +35,7 @@ const ForgotPassword = () => {
             await resetPassword(emailRef.current.value)
             setMessage('Check your inbox for further instructions')     
         } catch {
-            setError('Failed to reset password')
+            setError('No account is linked to this email')
         }
 
         setLoading(false)
